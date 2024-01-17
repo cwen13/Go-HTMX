@@ -1,0 +1,4 @@
+PG_USER="Postgres"
+PG_PASSSWORD="POST4DATABASE!"
+PG_IP="localhoist:5432"
+DB_NAME="go_cms"
