@@ -1,0 +1,54 @@
+package main
+
+import (
+	"os"
+	"fmt"
+	"log"
+	
+//	"net/http"
+//	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
+//	"github.com/joho/godotenv"
+//
+//	"gorm.io/gorm"
+//	"gorm.io/driver/postgres"
+)
+
+
+
+
+
+func main() {
+
+	app := fiber.New()
+
+	app.Get("/", func (c *fiber.Ctx) error {
+		return c.SendString("Hello")
+	})
+	app.Post("/", 	func (c *fiber.Ctx) error {
+		return c.SendString("Hello")
+	})
+	app.Put("/update", 	func (c *fiber.Ctx) error {
+		return c.SendString("Hello")
+	})
+	app.Delete("/delete", 	func (c *fiber.Ctx) error {
+		return c.SendString("Hello")
+	})
+	
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
+	
+	log.Fatalln(app.Listen(fmt.Sprintf(":%v", port)))
+
+}
+
+//	errEnv : = godotenv.Load()
+//	var postUser string = os.Getenv("PG_USER")
+//	var postPassword string = os.Getenv("PG_PASSWORD")
+//	var postIP string = os.Getenv("PG_IP")
+//	var dbName string = os.Getenv("DB_NAME")
+//
+//	var connStr string = `postgresql://${postUser}:${postPassowrd}@${postIP}/${dbNAme}?sslmode=disable`
+//	var db, err := sql.
